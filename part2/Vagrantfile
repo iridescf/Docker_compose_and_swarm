@@ -1,0 +1,15 @@
+ENV['VAGRANT_SERVER_URL'] = 'https://vagrant.elab.pro'
+
+  Vagrant.configure("2") do |config|
+    config.vm.define "test" do |test|
+
+      test.vm.box = "ubuntu/jammy64"
+      test.vm.hostname = "test" 
+      test.vm.synced_folder "C:/Users/Philipp/Desktop/work/21school/projects/DevOps_7.ID_1219717-1/src/services", "/home/vagrant/src/services"
+      test.vm.provider "virtualbox" do |vb|
+        vb.name = "test" 
+        vb.memory = "1024"  
+        vb.cpus = 1     
+      end
+    end
+  end
